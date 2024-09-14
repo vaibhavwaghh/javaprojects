@@ -1,0 +1,24 @@
+import java.sql.*;
+Connection  con ;
+  Statement  stmt ;
+  ResultSet rs;
+try
+{
+Class.forName("com.mysql.cj.jdbc.Driver");
+ con=DriverManager.getConnection("jdbc:mysql://localhost:3306/db1","sandeep","studycircle");
+ stmt=con.createStatement();
+stmt.executeUpdate("CREATE TABLE "+s+"(id  char(3), name varchar(20), salary varchar(10))");
+stmt.executeUpdate("INSERT INTO  "+s+" VALUES('"+t2.getText()+ "', '"+t3.getText()+"','"+t4.getText()+"')");	
+stmt.executeUpdate("UPDATE  "+s+" SET salary='"+ t6.getText() + "' WHERE id='" + t5.getText()+"'");
+stmt.executeUpdate("DELETE FROM "+s+" WHERE id='" + t7.getText()+"'");
+stmt.executeUpdate("DELETE FROM allbooks WHERE Title='"+title+"' OR Bookid='"+bookid+"'");
+stmt.executeUpdate("DROP TABLE  "+s);
+stmt.executeQuery("select * from  "+s); 
+stmt.executeQuery("SELECT * from allbooks WHERE Title='"+title+"' OR Bookid='"+bookid+"'");
+
+}
+catch(Exception e)
+{
+System.out.print(e);
+}
+con.close();
